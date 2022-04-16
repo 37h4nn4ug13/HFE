@@ -10,6 +10,9 @@
 .event-card {
     max-width: 600px;
 }
+.event-card:hover {
+    box-shadow: 0 0 20px grey;
+}
 @font-face {
     font-family: "Curly";
     src: url('../static/MonsieurLaDoulaise-Regular.ttf') format("truetype");
@@ -18,4 +21,17 @@
     font-family: Curly;
     font-size: 30px;
     font-weight: 200;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+footer {
+    background-color: #666;
+    color: #ddd !important;
+    font-size: medium;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+
 }

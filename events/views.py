@@ -1,7 +1,7 @@
 import re
 from django.shortcuts import render
 from .models import SlideShow, Event
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 
@@ -21,4 +21,5 @@ def index(request):
 class EventView(ListView):
     model = Event
 
-    
+class EventDetailView(DetailView):
+    model = Event

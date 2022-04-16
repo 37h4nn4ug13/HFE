@@ -24,5 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', events_views.index, name="home"),
     path('acount/', include('users.urls')),
-    path('events', event_views.EventView.as_view(template_name="events/events.html"), name="events")
+    path('events', include('events.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

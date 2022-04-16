@@ -1,0 +1,15 @@
+{% extends 'events/base.html' %}
+{% block content %}
+<a href="{% url 'events' %}"><h2>🠔 All Events</h2></a>
+<div class="card mb-3">
+    <img src="{{ object.image.url }}" class="card-img-top" alt="{{ object.title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ object.title }}</h5>
+      <p class="card-text">{{ object.description }}</p>
+      <h5 class="card-title">tickets are $50.00</h5>
+      <a href="#" class="btn btn-success">Get Now</a>
+      <p class="card-text"><small class="text-muted">{{ object.date|date }}</small></p>
+    </div>
+  </div>
+
+{% endblock %}
