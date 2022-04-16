@@ -1,0 +1,17 @@
+{% extends 'events/base.html' %}
+{% block content %}
+{% load static %}
+
+{% for event in object_list %}
+{% if event.is_published %}
+<div class="card mb-3 event-card">
+    <img src="{{ event.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ event.title }}</h5>
+      <p class="card-text">{{ event.description }}</p>
+      <p class="card-text"><small class="text-muted">{{ event.date|date }}</small></p>
+    </div>
+  </div>
+  {% endif %}
+{% endfor %}
+{% endblock content %}

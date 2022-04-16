@@ -1,0 +1,21 @@
+.slide-title {
+    font-size: 100px;
+}
+.slide-description {
+    font-size: 50px;
+}
+.slide {
+    text-shadow: 0 0 10px black;
+}
+.event-card {
+    max-width: 600px;
+}
+@font-face {
+    font-family: "Curly";
+    src: url('../static/MonsieurLaDoulaise-Regular.ttf') format("truetype");
+}
+.navbar-brand {
+    font-family: Curly;
+    font-size: 30px;
+    font-weight: 200;
+}

@@ -1,0 +1,18 @@
+{% extends 'events/base.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+<div class="card" style="max-width: 600px;">
+    <h5 class="card-header">Welcome back</h5>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form|crispy }}
+            </div>
+        </form>
+      <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+  </div>
+
+{% endblock content %}
