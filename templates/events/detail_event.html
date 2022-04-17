@@ -6,10 +6,42 @@
     <div class="card-body">
       <h5 class="card-title">{{ object.title }}</h5>
       <p class="card-text">{{ object.description }}</p>
-      <h5 class="card-title">tickets are $50.00</h5>
+    
+      {% if not object.has_happend %}
+      <h5 class="card-title">Tickets are ${{ object.price|stringformat:'.2f' }}</h5>
       <a href="#" class="btn btn-success">Get Now</a>
+      {% endif %}
       <p class="card-text"><small class="text-muted">{{ object.date|date }}</small></p>
     </div>
   </div>
+  {% if user.is_staff %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+<div class="card mb-3" style="max-width: 600px;">
+    <h5 class="card-header">Admin picture upload for {{ object.title }}</h5>
+    <div class="card-body">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form|crispy }}
+            </div>
+            <button type="submit" class="btn btn-primary">Add Image</button>
+        </form>
+      
+    </div>
+  </div>
+{% endif %}
+  
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for img in images %}
+    {% if img.event == object %}
+    <div class="col">
+      <div class="card">
+        <img src="{{ img.image.url }}" class="card-img-top" alt="...">
+      </div>
+    </div>
+    {% endif %}
 
+  {% endfor %}
+  </div>
 {% endblock %}

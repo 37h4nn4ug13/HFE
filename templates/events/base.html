@@ -22,9 +22,17 @@
                       <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                       </li>
+                      {% if request.user.is_staff %}
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'notify' %}">Notify</a>
+                      </li>
+                      {% endif %}
                       {% else %}
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Regiser</a>
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Login</a>
@@ -40,12 +48,20 @@
                 </div>
               </nav>
         </header>
-        <div class="container">
+        <!-- {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-dismissible alert-success">
+      <a href="#">X</a>
+      <strong>{{message}}<strong>
+    </div>
+ {% endfor %}
+{% endif %} -->
+        <div class="container mb-3">
         {% block content %}
 
         {% endblock content %}
     </div>
-    <footer>
+    <footer class="content-footer">
       <h5>Copyright 2022. By Ethan Naugle and Homeschool Formal Events. All Rights Reservered.</h5>
       <p>If you are looking for a powerful and affordable customized website contact Ethan Naugle at <a href="mailto:nnaugle1@vols.utk.edu">nnaugle1@vols.utk.edu</a> </p>
     </footer>

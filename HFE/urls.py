@@ -23,6 +23,7 @@ from events import views as event_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', events_views.index, name="home"),
-    path('acount/', include('users.urls')),
-    path('events', include('events.urls'))
+    path('accounts/', include('users.urls')),
+    path('events/', include('events.urls')),
+    path('notify', event_views.notify_view, name="notify")
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

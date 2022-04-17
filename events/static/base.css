@@ -26,12 +26,30 @@ a{
     text-decoration: none;
     color: black;
 }
-footer {
+.content-footer {
     background-color: #666;
     color: #ddd !important;
     font-size: medium;
     text-align: center;
     padding: 10px;
     margin: 0;
+    bottom: 0px;
 
+}
+.content-footer a {
+    color: #ddd;
+}
+.content-footer a:hover {
+    color: #fff;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.content-footer{
+    margin-top: auto;
+}
+.about {
+    margin-top: 20px;
 }
